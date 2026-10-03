@@ -1,5 +1,3 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `../history/v1/`. Decisão e impactos: [revision-v2.md](../revision-v2.md).
-
 # Specification Quality Checklist: Missão: Proteja seus Dados
 
 **Purpose**: Validar a completude e a qualidade da especificação antes do planejamento.
@@ -42,7 +40,7 @@ da especificação; não significa implementação concluída nem teste do produ
   CHK015 avalia se os requisitos permitem verificar os resultados definidos, não se a
   aplicação já atingiu esses resultados.
 - As seções obrigatórias do template foram preservadas, com quatro histórias priorizadas,
-  27 requisitos funcionais, quatro roteiros de missão e nove critérios de sucesso.
+  24 requisitos funcionais, sete roteiros de missão e nove critérios de sucesso.
 - A restrição de entrega em FR-023 reproduz uma obrigação expressa da constituição.
   Ela não escolhe linguagem, framework, arquitetura de código ou mecanismo de implantação;
   por isso não constitui detalhamento adicional de implementação para CHK001 e CHK016.
@@ -51,7 +49,7 @@ da especificação; não significa implementação concluída nem teste do produ
   acessibilidade (FR-021), segurança (FR-014–FR-015) e simplicidade/verificação
   (FR-022–FR-023 e critérios de sucesso).
 - As premissas estão explícitas: temas propostos, uma situação principal por missão,
-  progresso apenas enquanto a página permanece aberta e XP secundário sem substituir as três dimensões.
+  progresso apenas enquanto a página permanece aberta e ausência de total agregado de pontos.
   Essas escolhas podem ser revistas no esclarecimento sem mudar os princípios obrigatórios.
 - Revisão de consistência: resposta parcial não é confundida com omissão; erro não bloqueia
   avanço; contagens das dimensões não se compensam; ações simuladas não geram ações reais.
@@ -62,9 +60,9 @@ da especificação; não significa implementação concluída nem teste do produ
 | Requisitos | Evidência e critérios de aceitação |
 | --- | --- |
 | FR-001, FR-014, FR-015 | História 1, cenário 1; SC-005; casos de recarga e premissas de privacidade/progresso. |
-| FR-002, FR-003, FR-004 | História 2, cenários 1–4; quatro roteiros com objetivo, complexidade e aceite; SC-001. |
+| FR-002, FR-003, FR-004 | História 2, cenários 1–4; sete roteiros com objetivo, complexidade e aceite; SC-001. |
 | FR-005, FR-006, FR-007, FR-008 | História 1, cenário 2; etapas e respostas esperadas de cada roteiro; SC-001 e SC-005. |
-| FR-009, FR-010, FR-022 | História 1, cenários 3–4; APRENDER de cada missão; SC-002 e critérios de avaliação. |
+| FR-009, FR-010, FR-022 | História 1, cenários 3–4; ENTENDA de cada missão; SC-002 e critérios de avaliação. |
 | FR-011 | História 2, cenário 2; SC-003. |
 | FR-012, FR-024 | História 2, cenários 1, 4 e 5; SC-001 e SC-004. |
 | FR-013 | História 1, cenário 5; casos de seleção parcial e revisão; critérios de avaliação. |
@@ -75,5 +73,3 @@ da especificação; não significa implementação concluída nem teste do produ
 | FR-023 | Endereço público sem instalação e restrições explícitas de entrega, verificáveis na publicação; princípio VIII. |
 
 Itens incompletos exigiriam atualização antes de `$speckit-clarify` ou `$speckit-plan`.
-
-Revisão 2 (2026-10-03): marcadores de qualidade mantidos; quantidade, XP e feedback revisados conforme autorização em revision-v2.md. Não representam aprovação de testes da versão 2.

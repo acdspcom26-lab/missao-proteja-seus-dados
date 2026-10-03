@@ -220,11 +220,24 @@ Os temas abaixo são premissas de conteúdo para esta primeira especificação. 
 missões têm uma situação principal e as quatro etapas obrigatórias. Ajustes de redação
 podem ocorrer na revisão pedagógica, preservando objetivos, progressão e critérios.
 
-#### Missão 1 — Identificar: o convite do baú lendário
+#### Missão 1 — Identificar: o perfil que conta demais
+
+- **Contexto e objetivo**: perfil fictício de rede social; distinguir dados explícitos
+  de identificação e contato de um interesse genérico, iniciando a EF08CO08.
+- **IDENTIFICAR**: selecionar nome completo e telefone fictícios entre itens do perfil.
+- **AVALIAR**: reconhecer que expor esses dados pode facilitar identificação e contatos
+  indesejados; não tratar uma preferência genérica como equivalente ao telefone.
+- **DECIDIR**: escolher uma versão do perfil que retire os dados desnecessários.
+- **APRENDER**: explicar por que retirar os dados reduz exposição; se a resposta mantiver
+  telefone ou nome completo, apontar os dados ainda expostos e a alternativa adequada.
+- **Complexidade e aceite**: dados visíveis e risco direto; a seleção esperada inclui
+  ambos os dados e exclui o interesse genérico.
+
+
+#### Missão 2 — Avaliar: o prêmio pede informação demais
 
 - **Contexto e objetivo**: oferta fictícia de recompensa em jogo que pede endereço,
-  telefone e senha no chat de Ilha Pixel; distinguir as informações protegidas dos
-  cristais virtuais oferecidos. Lobby, avatares e urgência contextualizam o pedido.
+  telefone e senha; avaliar a pertinência de solicitações de dados.
 - **IDENTIFICAR**: distinguir os dados e a credencial solicitados de informações do jogo
   que não identificam o personagem.
 - **AVALIAR**: associar senha à possibilidade de acesso indevido à conta e endereço e
@@ -237,9 +250,9 @@ podem ocorrer na revisão pedagógica, preservando objetivos, progressão e crit
   a resposta adequada recusa o envio solicitado pela oferta.
 
 
-#### Missão 2 — Avaliar: a rotina no feed
+#### Missão 3 — Decidir: quem vai ver essa postagem?
 
-- **Contexto e objetivo**: feed público fictício Conecta+ mostra rotina e marcação de uma amizade;
+- **Contexto e objetivo**: personagem pretende publicar sua rotina e marcar uma amizade;
   considerar audiência, dados de terceiros e alcance do compartilhamento.
 - **IDENTIFICAR**: reconhecer os dados de rotina e a identificação da outra pessoa.
 - **AVALIAR**: avaliar exposição a desconhecidos, repasse da publicação e exposição de
@@ -252,25 +265,10 @@ podem ocorrer na revisão pedagógica, preservando objetivos, progressão e crit
   tratar o conteúdo e a audiência, sem prometer proteção absoluta.
 
 
-#### Missão 3 — Decidir: o contato desconhecido
-
-- **Contexto e objetivo**: mensagem privada de alguém conhecido apenas em uma partida;
-  o remetente pede a escola e o horário de saída de Nino para encontrá-lo.
-- **IDENTIFICAR**: reconhecer escola e horário como informações pessoais de rotina.
-- **AVALIAR**: compreender que a combinação permite localizar a personagem; gostar do
-  mesmo jogo não confirma a identidade nem torna o contato confiável.
-- **DECIDIR**: não informar a rotina, encerrar ou denunciar o contato e buscar ajuda
-  de uma pessoa adulta de confiança.
-- **APRENDER**: explicar por que enviar apenas parte dos dados ou continuar revelando
-  a rotina ainda pode expor a personagem.
-- **Complexidade e aceite**: transferir a análise de exposição para uma decisão em
-  conversa privada, sem interagir com qualquer pessoa real.
-
 #### Missão 4 — Desafio final: proteja a personagem
 
 - **Contexto e objetivo**: convite para evento de jogo divulgado em rede social,
-  com perfil, postagem e conversa fictícios; um item raro e uma mensagem urgente
-  solicitando senha integram os aprendizados da EF08CO08.
+  com perfil, postagem e conversa fictícios; integrar os aprendizados da EF08CO08.
 - **IDENTIFICAR**: reconhecer dados explícitos de contato, pistas visuais de localização,
   rotina e solicitação de credencial nos diferentes elementos.
 - **AVALIAR**: relacionar cada grupo de dados aos riscos pertinentes e reconhecer a

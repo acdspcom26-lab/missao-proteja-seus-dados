@@ -1,17 +1,6 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `../history/v1/`. Decisão e impactos: [revision-v2.md](../revision-v2.md).
-
 # UI Contract: experiência educacional
 
-### Cenários da revisão visual
-
-Conforme [revision-scenarios.md](../revision-scenarios.md), telas maiores mostram
-simulação à esquerda e desafio à direita; no celular, simulação primeiro. As pistas
-permanecem disponíveis durante as quatro etapas. Lobby, curtida, comentários, alcance
-e perfil são ações locais rotuladas, sem modificar respostas, XP ou progresso.
-Não há compositor editável nem interação real. Botões usam `aria-pressed` ou
-`aria-expanded` quando pertinentes e foco visível.
-
-**Versão do contrato**: 2.0.0
+**Versão do contrato**: 1.0.0
 **Base**: [spec.md](../spec.md), [data-model.md](../data-model.md).
 A interface pública é visual e acessível; não há API HTTP de negócio.
 
@@ -27,12 +16,12 @@ de rede externas. Navegação de etapas ocorre dentro do documento.
 
 | Estado | Conteúdo obrigatório | Ações |
 | --- | --- | --- |
-| Abertura | Título, objetivo EF08CO08 em linguagem do público, 4 missões, ficção e progresso não salvo. | Começar missão. |
-| IDENTIFICAR | Missão X de 4, etapa 1 de 4, situação e pergunta com opções múltiplas. | Selecionar, confirmar identificação, reiniciar. |
-| AVALIAR | Etapa 2 de 4, mesma situação e opções múltiplas de riscos. | Selecionar, confirmar avaliação, reiniciar. |
-| DECIDIR | Etapa 3 de 4, mesma situação e alternativas de ação única. | Selecionar, confirmar decisão, reiniciar. |
-| APRENDER | Etapa 4 de 4, respostas, dados, riscos e decisão explicados. | Próxima missão, ou ver resultado na missão 4; reiniciar. |
-| Resultado | Três dimensões, cada X de 4 e orientação; exemplos e missões para revisão conforme acertos. | Reiniciar. |
+| Abertura | Título, objetivo EF08CO08 em linguagem do público, 7 missões, ficção e progresso não salvo. | Começar missão. |
+| IDENTIFIQUE | Missão X de 7, etapa 1 de 4, situação e pergunta com opções múltiplas. | Selecionar, confirmar identificação, reiniciar. |
+| AVALIE | Etapa 2 de 4, mesma situação e opções múltiplas de riscos. | Selecionar, confirmar avaliação, reiniciar. |
+| DECIDA | Etapa 3 de 4, mesma situação e alternativas de ação única. | Selecionar, confirmar decisão, reiniciar. |
+| ENTENDA | Etapa 4 de 4, respostas, dados, riscos e decisão explicados. | Próxima missão, ou ver resultado na missão 7; reiniciar. |
+| Resultado | Três dimensões, cada X de 7 e orientação; exemplos e missões para revisão conforme acertos. | Reiniciar. |
 | Confirmação de reinício | Explica descarte da tentativa. | Cancelar; reiniciar percurso. |
 | Erro de carregamento | Mensagem compreensível, nenhuma conclusão inventada. | Recarregar. |
 
@@ -44,13 +33,13 @@ essa diferença sem interromper o fluxo pedagógico.
 
 ## Seleção, confirmação e feedback
 
-- IDENTIFICAR/AVALIAR usam checkboxes e DECIDIR usa radios, todos rotulados e agrupados
+- IDENTIFIQUE/AVALIE usam checkboxes e DECIDA usa radios, todos rotulados e agrupados
   por fieldset/legend. Alteração antes da confirmação não conta como tentativa.
 - Confirmar sem seleção mantém contexto e foco útil, apresenta instrução textual
   associada ao grupo e anunciada; não registra erro pedagógico.
 - Após confirmação, a resposta é imutável naquela tentativa. Não revelar o gabarito
-  antes de APRENDER nem exigir correção para avançar.
-- APRENDER apresenta a três cartões breves, com orientação específica de seleções e omissões.
+  antes de ENTENDA nem exigir correção para avançar.
+- ENTENDA apresenta a síntese e comentários de opções selecionadas e esperadas omitidas.
   Dados, riscos e justificativa da proteção aparecem em todos os percursos.
 - Desativar imediatamente o botão confirmado; consumir seu token e aposentar o controle.
   Renderizar novo controle para a próxima etapa, com rascunho vazio, evitando que
@@ -82,7 +71,7 @@ essa diferença sem interromper o fluxo pedagógico.
 
 Se JavaScript estiver desativado, mostrar explicação em noscript; o fluxo requer JavaScript.
 HTML inicial mantém mensagem de carregamento/recarga se módulo falhar. Catálogo inválido
-não libera uma atividade incompleta. As quatro missões e recursos são carregados antes de
+não libera uma atividade incompleta. As sete missões e recursos são carregados antes de
 habilitar o início; desconexão posterior não deve inventar respostas. Offline não é garantia.
 
 A ausência de coleta refere-se ao código da aplicação, não aos registros de segurança
@@ -93,14 +82,8 @@ do provedor descritos em research.md. Navegação normal de arquivos estáticos 
 | Contrato | Requisitos | Evidência |
 | --- | --- | --- |
 | Abertura e simulação | FR-001, FR-003, FR-004, FR-014 | Acesso sem identificação; revisão pedagógica. |
-| Estados e ordem | FR-002, FR-005, FR-011, FR-012, FR-024 | Percursos com 12 respostas, incluindo todos os erros. |
-| Seleção e feedback | FR-006–FR-010, FR-013, FR-022 | Adequadas, parciais, indevidas e vazias; APRENDER coerente. |
-| Resultado e reinício | FR-016–FR-018 | Fixtures 4/4, 0/4 e mistas; cancelar/confirmar. |
+| Estados e ordem | FR-002, FR-005, FR-011, FR-012, FR-024 | Percursos com 21 respostas, incluindo todos os erros. |
+| Seleção e feedback | FR-006–FR-010, FR-013, FR-022 | Adequadas, parciais, indevidas e vazias; ENTENDA coerente. |
+| Resultado e reinício | FR-016–FR-018 | Fixtures 7/7, 0/7 e mistas; cancelar/confirmar. |
 | Acessibilidade | FR-019–FR-021 | Teclado, toque, leitura, texto ampliado e avaliação manual. |
 | Ciclo de vida e publicação | FR-015, FR-023 | Recarga, BFCache, ausência de gravação/envio e subdiretório. |
-
-## Contrato V2 de apresentação
-
-Rótulos: Identificar, Avaliar, Decidir, Aprender. HUD mostra Missão X de 4, progresso 0–12 desafios e XP secundário. A etapa APRENDER mostra três feedbacks de até duas frases preferencialmente; acerto ou orientação, sem repetição por alternativa. O bônus +25 é anunciado ao continuar. Resultado: MISSÃO CONCLUÍDA!, três dimensões X de 4, XP obtido e botão Jogar novamente.
-
-Botão Som: desligado/ligado sempre visível, aria-pressed, sem armazenamento; indisponibilidade é textual. Sons curtos de seleção, acerto, alerta, XP, missão e jogo gerados localmente. Redução de movimento elimina animação, sem remover informação. Todos os controles essenciais continuam nativos, com foco visível e alvos de toque de 44 px.

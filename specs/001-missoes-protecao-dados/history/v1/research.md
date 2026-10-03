@@ -1,14 +1,7 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `history/v1/`. Decisão e impactos: [revision-v2.md](revision-v2.md).
-
 # Research: Missão: Proteja seus Dados
 
-**Decisão visual de 2026-10-03**: ambientes com DOM semântico e SVG local, mantendo
-controles nativos nas respostas. Chats/feed oferecem pistas textuais e funcionam sem
-rede externa, canvas interativo ou nova dependência. Interações da cena não participam
-da avaliação. Rastreabilidade em [revision-scenarios.md](revision-scenarios.md).
-
 **Data**: 2026-10-02
-**Base**: [spec.md](spec.md) e constituição v2.0.0.
+**Base**: [spec.md](spec.md) e constituição v1.0.0.
 
 ## Questões resolvidas
 
@@ -16,7 +9,7 @@ da avaliação. Rastreabilidade em [revision-scenarios.md](revision-scenarios.md
 
 - **Decision**: HTML semântico, CSS responsivo e JavaScript ES2022 com módulos nativos.
   Publicar somente `docs/`; nenhuma dependência de execução, compilação ou framework.
-- **Rationale**: quatro situações e um fluxo linear cabem em uma aplicação pequena.
+- **Rationale**: sete situações e um fluxo linear cabem em uma aplicação pequena.
   Separar conteúdo, avaliação, estado e renderização permite testes sem criar infraestrutura.
 - **Alternatives considered**: React/Vue e ferramenta de build adicionariam dependências
   sem necessidade funcional; arquivo monolítico dificultaria revisão pedagógica e testes.
@@ -55,10 +48,10 @@ da avaliação. Rastreabilidade em [revision-scenarios.md](revision-scenarios.md
 
 ### R4 — Conteúdo e avaliação
 
-- **Decision**: catálogo de quatro missões como objetos de dados em módulo local.
+- **Decision**: catálogo de sete missões como objetos de dados em módulo local.
   Cada missão possui três perguntas: conjuntos de opções em identificação/avaliação
   e escolha única em decisão. Comparação exata de conjuntos; nenhuma nota parcial agregada.
-- **Rationale**: corresponde aos 12 registros e às três contagens de 0 a 4 definidos
+- **Rationale**: corresponde aos 21 registros e às três contagens de 0 a 7 definidos
   na especificação. Feedback por opção permite explicar acertos, omissões e itens indevidos.
 - **Alternatives considered**: texto livre implicaria coleta e correção ambígua;
   feedback gerado por serviço externo introduziria rede e resultados não revisáveis.
@@ -93,7 +86,7 @@ da avaliação. Rastreabilidade em [revision-scenarios.md](revision-scenarios.md
   [Playwright: accessibility testing](https://playwright.dev/docs/accessibility-testing)
   e [http-server](https://github.com/http-party/http-server).
   Verificações automáticas de acessibilidade não substituem revisão manual.
-- **Ambiente observado**: Node v24.12.0 e npm 11.19.0 disponíveis. Nenhuma dependência
+- **Ambiente observado**: Node v24.21.0 e npm 11.19.0 disponíveis. Nenhuma dependência
   instalada nesta etapa; nenhum comando de teste do produto foi executado.
 
 ### R7 — Orçamento de desempenho
@@ -134,7 +127,3 @@ da avaliação. Rastreabilidade em [revision-scenarios.md](revision-scenarios.md
 Decisões técnicas resolvidas. Nenhuma alteração da constituição ou do escopo é necessária.
 O limite de registros da hospedagem está documentado; a aplicação não recebe nem usa
 esses registros. Prosseguir ao modelo de dados, contrato de interface e guia de validação.
-
-## R9 — avaliação do protótipo e gamificação local (2026-10-03)
-
-Decisão autorizada: reduzir sete missões para quatro por duração/cansaço, sem reduzir dimensões. Reutilizar os roteiros conforme revision-v2.md. XP derivado evita duplicação; revelação apenas em APRENDER preserva a avaliação. Web Audio gera seis sinais curtos locais sem download; som desligado inicialmente e disponível via botão. CSS usa neon moderado e movimento reduzido. Não há nova dependência, coleta ou persistência. Essas decisões derivam da avaliação fornecida pela responsável; não representam pesquisa externa nova.

@@ -1,10 +1,4 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `history/v1/`. Decisão e impactos: [revision-v2.md](revision-v2.md).
-
 # Implementation Plan: Missão: Proteja seus Dados
-
-Revisão visual de 2026-10-03: `docs/js/scenarios.js` renderiza as quatro simulações
-com SVGs locais, sem acoplar suas interações ao domínio, áudio ou XP. A organização
-vigente e a rastreabilidade estão em [revision-scenarios.md](revision-scenarios.md).
 
 **Branch**: `main` | **Date**: 2026-10-02 | **Spec**: [spec.md](spec.md)
 
@@ -17,10 +11,10 @@ O script usa o nome da funcionalidade como BRANCH quando resolve feature.json;
 ## Summary
 
 Implementar uma aplicação educacional estática para o 8º ano, alinhada à EF08CO08,
-com exatamente quatro missões nos contextos descritos em spec.md. Cada missão segue
-IDENTIFICAR → AVALIAR → DECIDIR → APRENDER; erros recebem explicação e nunca bloqueiam avanço.
+com exatamente sete missões nos contextos descritos em spec.md. Cada missão segue
+IDENTIFIQUE → AVALIE → DECIDA → ENTENDA; erros recebem explicação e nunca bloqueiam avanço.
 O resultado apresenta identificação de dados pessoais, avaliação de riscos e decisões
-de proteção, com quatro observações por dimensão.
+de proteção, com sete observações por dimensão.
 
 A solução usa HTML semântico, CSS responsivo e módulos JavaScript nativos, sem framework
 ou dependência de execução. Um catálogo local define as situações e seus feedbacks;
@@ -34,7 +28,7 @@ sem implementar funcionalidades, instalar dependências ou publicar o site.
 ## Technical Context
 
 **Language/Version**: HTML, CSS e JavaScript ES2022 com ES modules; Node.js 24.x para
-ferramentas e testes, não para produção. Ambiente observado: Node 24.12.0, npm 11.19.0.
+ferramentas e testes, não para produção. Ambiente observado: Node 24.21.0, npm 11.19.0.
 
 **Primary Dependencies**: zero em execução. Somente desenvolvimento:
 @playwright/test, @axe-core/playwright e http-server. Fixar versões compatíveis exatas
@@ -44,7 +38,7 @@ na implementação e versionar package-lock.json. Node oferece node:test e node:
 localStorage, sessionStorage, IndexedDB, contas ou banco de dados.
 
 **Testing**: testes unitários de avaliação/transições; testes de integridade e conteúdo
-das quatro missões; E2E com Playwright; axe como apoio, mais teclado, leitor de tela,
+das sete missões; E2E com Playwright; axe como apoio, mais teclado, leitor de tela,
 texto ampliado, dispositivos reais e revisão pedagógica manual.
 
 **Target Platform**: navegadores modernos com ES modules, controles nativos e dialog;
@@ -62,7 +56,7 @@ São metas técnicas a medir, não resultados já obtidos ou garantia em qualque
 telemetria, CDN, recursos externos ou comunicação com redes sociais/jogos reais.
 Progresso não é salvo. Acesso inicial requer rede; offline não é garantido.
 
-**Scale/Scope**: 4 missões, 3 perguntas por missão, 12 respostas, 3 dimensões e um
+**Scale/Scope**: 7 missões, 3 perguntas por missão, 21 respostas, 3 dimensões e um
 resultado final; conteúdo em pt-BR. Uma pessoa usa cada tentativa sem identificação;
 não há sessão de servidor, coordenação entre usuários, painel docente ou ranking.
 
@@ -74,17 +68,17 @@ estática; nenhum desvio identificado. Reavaliação após o desenho da fase 1:
 | Princípio obrigatório | Evidência no desenho | Pré-fase 0 | Pós-fase 1 |
 | --- | --- | --- | --- |
 | I. Alinhamento à BNCC Computação | Mission.skill = EF08CO08; objetivos e avaliação nas três dimensões; público preservado. | PASS | PASS |
-| II. Situações contextualizadas | Catálogo dos quatro roteiros, perfis/chats/postagens fictícios; contexto permanece consultável. | PASS | PASS |
+| II. Situações contextualizadas | Catálogo dos sete roteiros, perfis/chats/postagens fictícios; contexto permanece consultável. | PASS | PASS |
 | III. Feedback pedagógico | Síntese de dado, risco e proteção mais explicações de seleções e omissões. | PASS | PASS |
-| IV. Progressão | Ordens 1–4, quatro etapas, desafio final integrado, avanço independente de acerto. | PASS | PASS |
+| IV. Progressão | Ordens 1–7, quatro etapas, desafio final integrado, avanço independente de acerto. | PASS | PASS |
 | V. Linguagem e interface | pt-BR, revisão para o 8º ano e matriz computador/tablet/celular. | PASS | PASS |
 | VI. Acessibilidade e usabilidade | Controles nativos, foco, equivalência textual e revisão automática/manual. | PASS | PASS |
 | VII. Segurança por design | Sem dados reais, campos livres, persistência ou envio; estado transitório e dados fictícios. | PASS | PASS |
 | VIII. Simplicidade e verificabilidade | Arquivos estáticos em docs/, funções testáveis, dependências somente de desenvolvimento. | PASS | PASS |
 
-**Regras adicionais**: IDENTIFICAR → AVALIAR → DECIDIR → APRENDER preservada;
-respostas erradas não bloqueiam; resultado por dimensão com XP motivacional secundário.
-Emenda constitucional 2.0.0 aprovada pela responsável; ver revision-v2.md.
+**Regras adicionais**: IDENTIFIQUE → AVALIE → DECIDA → ENTENDA preservada;
+respostas erradas não bloqueiam; resultado por dimensão sem pontuação agregada.
+Nenhuma alteração constitucional proposta.
 
 **Limite de hospedagem**: o requisito de não coleta é aplicado ao código e às integrações
 da aplicação. GitHub Pages mantém registros próprios de acesso; research.md documenta
@@ -192,7 +186,7 @@ comportamentos de interação. Não se aplica contrato de endpoints, pois não h
 Toda ação leva geração, revisão, missão e etapa de origem; a transição aceita consome
 esse contexto sincronicamente. Botões antigos são desativados/aposentados, e novas
 perguntas começam sem seleção. Uma resposta só é gravada uma vez por missão/dimensão.
-Resultado deriva dos 12 registros; não manter um contador paralelo sujeito a duplicação.
+Resultado deriva dos 21 registros; não manter um contador paralelo sujeito a duplicação.
 
 Inicialização sempre cria estado vazio. Limpar em pagehide e reiniciar na restauração
 BFCache; mudança de aba não reinicia. Reinício confirmado abre Missão 1; recarga abre
@@ -211,12 +205,8 @@ Nenhum comando de publicação, commit ou criação de branch foi executado nest
 
 ## Handoff para tarefas
 
-Decompor em fundação estática e testes de domínio, catálogo das quatro missões,
+Decompor em fundação estática e testes de domínio, catálogo das sete missões,
 jornada completa, resultado/reinício, acessibilidade, privacidade/ciclo de vida e
 validação de publicação. Todas as histórias obrigatórias compõem a entrega final,
 independentemente da ordem incremental de construção. Usar $speckit-tasks para gerar
 a sequência executável a partir destes artefatos.
-
-## Revisão 2 — implementação autorizada
-
-Manter módulos nativos e zero dependências de execução. Adicionar gamification.js (XP puro derivado) e audio.js (Web Audio após gesto do usuário, desligado inicialmente). HUD sem identificação, progresso, tema escuro, cenas de perfil/postagem/chat/lobby e microinterações CSS; nenhuma biblioteca adicional. Efeitos visuais não revelam gabarito antes de APRENDER. Estado de som só em memória, separado do estado pedagógico; reset descarta XP/respostas, recarga volta a som desligado. Contratos e evidências V1 são históricos; revalidar a V2.

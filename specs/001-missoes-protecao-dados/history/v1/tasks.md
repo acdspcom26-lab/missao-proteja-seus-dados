@@ -4,32 +4,6 @@ description: "Tarefas de implementação de Missão: Proteja seus Dados"
 
 # Tasks: Missão: Proteja seus Dados
 
-## Revisão vigente: quatro missões e cenários imersivos
-
-T001–T059 abaixo registram a V1; referências a sete missões nessa seção são históricas,
-substituídas pelas revisões autorizadas em `revision-v2.md` e `revision-scenarios.md`.
-O registro original está em `history/v1/tasks.md`. Pendências externas continuam abertas.
-
-- [x] T060 Reorganizar catálogo para quatro missões/12 respostas, EF08CO08, quatro etapas
-  e avaliação separada em `docs/js/content/missions.js` e módulos de domínio.
-- [x] T061 Implementar XP derivado, feedback breve, HUD e áudio local opt-in em
-  `docs/js/gamification.js`, `audio.js`, `view.js` e `app.js`.
-- [x] T062 Representar jogo, feed, conversa privada e evento em `docs/js/scenarios.js`,
-  reaproveitando os roteiros conforme `revision-scenarios.md`.
-- [x] T063 Criar SVGs locais em `docs/assets/illustrations/` e organizar cenário/desafio
-  responsivos em `docs/assets/styles.css` e `docs/js/view.js`.
-- [x] T064 Oferecer exploração, comentários, curtida simulada e perfil do remetente
-  sem efeitos em respostas, XP ou serviços externos em `docs/js/scenarios.js`.
-- [x] T065 Atualizar testes de conteúdo, percurso, XP, som e cenários em `tests/`,
-  verificando teclado, axe, texto 200%, toque emulado, movimento reduzido e prefixo.
-- [x] T066 Consolidar resultados e capturas em `validation.md` e `validation-performance.md`.
-- [ ] T067 Validar Firefox/WebKit funcionais, dispositivos reais, leitor de tela,
-  BFCache real e revisão pedagógica externa (continuação de T035/T040/T048/T057).
-- [ ] T068 Após autorização, publicar no GitHub Pages e repetir os fluxos no endereço
-  público, verificando recursos e ausência de 404 (continuação de T059).
-
-## Registro histórico de execução da V1
-
 **Input**: Documentos de `specs/001-missoes-protecao-dados/`.
 **Prerequisites**: [plan.md](plan.md), [spec.md](spec.md), [research.md](research.md),
 [data-model.md](data-model.md), [contrato de interface](contracts/ui-contract.md),

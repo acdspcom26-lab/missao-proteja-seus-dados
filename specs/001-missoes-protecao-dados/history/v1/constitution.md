@@ -1,3 +1,24 @@
+<!--
+Sync Impact Report
+Version change: template sem versão adotada → 1.0.0 (adoção inicial).
+Modified principles: os cinco espaços genéricos do template foram substituídos pelos
+oito princípios obrigatórios definidos para o projeto:
+1. ALINHAMENTO À BNCC COMPUTAÇÃO
+2. APRENDIZAGEM POR SITUAÇÕES CONTEXTUALIZADAS
+3. FEEDBACK PEDAGÓGICO
+4. PROGRESSÃO DA APRENDIZAGEM
+5. LINGUAGEM E INTERFACE ADEQUADAS
+6. ACESSIBILIDADE E USABILIDADE
+7. SEGURANÇA POR DESIGN
+8. SIMPLICIDADE TÉCNICA E VERIFICABILIDADE
+Added sections: Contexto e regras pedagógicas; Fluxo de desenvolvimento e verificação;
+regras concretas de governança.
+Removed sections: nenhuma seção de governança previamente adotada.
+Follow-up TODOs: nenhum. Nenhum placeholder foi mantido.
+Escopo da atualização: somente .specify/memory/constitution.md.
+Este relatório é temporário e deve ser removido antes do commit da constituição.
+-->
+
 # Missão: Proteja seus Dados Constitution
 
 ## Core Principles
@@ -29,8 +50,8 @@ o erro em oportunidade de aprendizagem.
 
 ### IV. PROGRESSÃO DA APRENDIZAGEM
 
-A aplicação DEVE conter exatamente 4 missões, organizadas de situações mais simples
-para situações mais complexas. A Missão 4 DEVE funcionar como desafio final integrador,
+A aplicação DEVE conter exatamente 7 missões, organizadas de situações mais simples
+para situações mais complexas. A Missão 7 DEVE funcionar como desafio final integrador,
 articulando identificação de dados pessoais, avaliação de riscos e decisões de proteção.
 A especificação de cada missão DEVE descrever sua complexidade e sua contribuição para
 a progressão. Respostas incorretas NÃO DEVEM impedir o avanço.
@@ -76,17 +97,17 @@ do 8º ano do Ensino Fundamental. Seu objetivo é desenvolver a habilidade EF08C
 por meio de situações simuladas de redes sociais e jogos online, com análise de dados
 pessoais, avaliação de riscos, decisões de proteção e feedback pedagógico explicativo.
 
-Cada uma das 4 missões DEVE seguir, nesta ordem, a sequência
-**IDENTIFICAR → AVALIAR → DECIDIR → APRENDER**:
+Cada uma das 7 missões DEVE seguir, nesta ordem, a sequência
+**IDENTIFIQUE → AVALIE → DECIDA → ENTENDA**:
 
-1. **IDENTIFICAR**: distinguir os dados pessoais presentes ou solicitados na situação.
-2. **AVALIAR**: analisar os riscos associados aos dados e ao contexto apresentado.
-3. **DECIDIR**: escolher como agir diante da situação e dos riscos identificados.
-4. **APRENDER**: receber a explicação do dado envolvido, do risco e da decisão adequada.
+1. **IDENTIFIQUE**: distinguir os dados pessoais presentes ou solicitados na situação.
+2. **AVALIE**: analisar os riscos associados aos dados e ao contexto apresentado.
+3. **DECIDA**: escolher como agir diante da situação e dos riscos identificados.
+4. **ENTENDA**: receber a explicação do dado envolvido, do risco e da decisão adequada.
 
 Respostas incorretas NÃO DEVEM bloquear o avanço nem exigir acerto para liberar a próxima
 missão. O feedback explicativo DEVE permanecer parte do percurso após o erro.
-A Missão 4 DEVE integrar os aprendizados das missões anteriores e preservar essa sequência.
+A Missão 7 DEVE integrar os aprendizados das missões anteriores e preservar essa sequência.
 
 A pontuação DEVE ser um elemento secundário. O resultado final DEVE priorizar e apresentar
 separadamente as três dimensões de aprendizagem:
@@ -109,8 +130,8 @@ os riscos trabalhados e o feedback previsto para decisões adequadas e inadequad
 Cada alteração DEVE incluir critérios de aceitação e evidências de verificação compatíveis
 com seu impacto. A revisão pedagógica e técnica DEVE verificar:
 
-- público do 8º ano, alinhamento à EF08CO08, exatamente 4 missões e desafio final integrador;
-- sequência IDENTIFICAR → AVALIAR → DECIDIR → APRENDER em todas as missões;
+- público do 8º ano, alinhamento à EF08CO08, exatamente 7 missões e desafio final integrador;
+- sequência IDENTIFIQUE → AVALIE → DECIDA → ENTENDA em todas as missões;
 - feedback explicativo após cada situação e avanço permitido após respostas incorretas;
 - resultado final nas três dimensões, com pontuação secundária;
 - linguagem, legibilidade, navegação e acesso às ações em computador, tablet e celular;
@@ -123,12 +144,6 @@ por roteiros manuais reproduzíveis para aspectos pedagógicos, visuais e de int
 Os registros DEVEM indicar o que foi verificado, o resultado e eventuais falhas.
 Uma entrega NÃO DEVE ser considerada concluída enquanto houver descumprimento destes
 critérios. Complexidade adicional DEVE ser justificada no plano antes de sua implementação.
-
-## Emenda 2.0.0 — revisão após teste do protótipo
-
-Em 2026-10-03, a responsável autorizou explicitamente reduzir o percurso inicial de sete missões para quatro, após avaliar duração, cansaço e dificuldade de demonstração. A versão 1.0.0 e os artefatos anteriores estão preservados em `specs/001-missoes-protecao-dados/history/v1/`. A versão MAJOR registra a mudança incompatível de quantidade; os oito princípios, EF08CO08, público e três dimensões permanecem.
-
-A nova progressão tem focos predominantes em identificar, avaliar e decidir, seguidos de desafio integrador. Todas as missões preservam os três desafios e a etapa de aprendizagem. Feedback passa a ser breve e específico. XP motivacional e sons opcionais são permitidos, sem ranking, persistência, bloqueio ou substituição das três dimensões. O plano de adequação, justificativa e documentos afetados estão em `specs/001-missoes-protecao-dados/revision-v2.md`.
 
 ## Governance
 
@@ -153,4 +168,4 @@ constituição e resolver divergências antes da aprovação. Requisitos incompa
 ser corrigidos ou submetidos ao procedimento formal de emenda; decisões isoladas de
 implementação NÃO DEVEM criar exceções aos princípios.
 
-**Version**: 2.0.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-03
+**Version**: 1.0.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02

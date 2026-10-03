@@ -1,5 +1,3 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `history/v1/`. Decisão e impactos: [revision-v2.md](revision-v2.md).
-
 # Data Model: Missão: Proteja seus Dados
 
 **Data**: 2026-10-02
@@ -18,8 +16,8 @@ IDs identificam conteúdo, nunca pessoas. Não guardar horários, IPs ou identif
 
 | Campo | Tipo | Regra |
 | --- | --- | --- |
-| id | string | Estável e único: mission-1 até mission-4. |
-| order | inteiro | 1 a 4, sem lacunas ou duplicações. |
+| id | string | Estável e único: mission-1 até mission-7. |
+| order | inteiro | 1 a 7, sem lacunas ou duplicações. |
 | title | string | Título do roteiro em português. |
 | objective | string | Objetivo verificável ligado à EF08CO08. |
 | skill | string | Exatamente EF08CO08. |
@@ -29,10 +27,10 @@ IDs identificam conteúdo, nunca pessoas. Não guardar horários, IPs ou identif
 | risks | Risk[] | Riscos relacionados aos dados ou às combinações. |
 | questions | Question[3] | Ordem identify, assess, decide. |
 | synthesis | objeto | dataExplanation, riskExplanation, protectionExplanation, todos não vazios. |
-| integratedMissionIds | string[] | Missão 4 referencia missões 1 a 3; nas demais, vazio. |
+| integratedMissionIds | string[] | Missão 7 referencia missões 1 a 6; nas demais, vazio. |
 
-Cada missão termina em APRENDER, que deriva das respostas e não cria uma quarta pergunta.
-Validar os quatro roteiros contra os aceites de conteúdo de spec.md, não apenas contar campos.
+Cada missão termina em ENTENDA, que deriva das respostas e não cria uma quarta pergunta.
+Validar os sete roteiros contra os aceites de conteúdo de spec.md, não apenas contar campos.
 
 ### Scenario
 
@@ -85,11 +83,11 @@ com outras seleções. Os roteiros atuais têm dados/riscos a identificar e não
 | Campo | Tipo | Regra |
 | --- | --- | --- |
 | screen | enum | welcome, mission, result ou error. |
-| missionIndex | inteiro ou null | 0 a 3 em mission; null na abertura. |
+| missionIndex | inteiro ou null | 0 a 6 em mission; null na abertura. |
 | stage | enum ou null | identify, assess, decide ou understand. |
 | draftOptionIds | string[] | Seleção editável somente da pergunta atual; inicia vazia. |
-| answers | AnswerRecord[] | No máximo 12; chave única missionId + dimension. |
-| completedMissionIds | string[] | Prefixo ordenado de mission-1 a mission-4. |
+| answers | AnswerRecord[] | No máximo 21; chave única missionId + dimension. |
+| completedMissionIds | string[] | Prefixo ordenado de mission-1 a mission-7. |
 | generation | inteiro | Incrementado em todo reset para invalidar eventos antigos. |
 | revision | inteiro | Incrementado em transição aceita e na abertura/saída de confirmação de reinício. |
 | restartPromptOpen | boolean | Suspende ações do percurso enquanto a confirmação está aberta. |
@@ -110,9 +108,9 @@ Evaluation é derivada: adequate (boolean), matchedOptionIds, missingOptionIds e
 extraOptionIds. adequate requer igualdade de conjuntos, independentemente da ordem.
 Resposta vazia não produz Evaluation nem AnswerRecord.
 
-DimensionResult contém dimension, adequateCount (0–4), total (4), adequateMissionIds,
-reviewMissionIds e guidance. Só existe quando as quatro missões estão concluídas.
-Contagens 0, 1–3 e 4 seguem as regras descritivas de spec.md. XP é derivado separadamente, sem substituir DimensionResult.
+DimensionResult contém dimension, adequateCount (0–7), total (7), adequateMissionIds,
+reviewMissionIds e guidance. Só existe quando as sete missões estão concluídas.
+Contagens 0, 1–6 e 7 seguem as regras descritivas de spec.md. Não há total agregado.
 
 ## Transições e invariantes
 
@@ -127,8 +125,8 @@ sincronicamente. Ação com token antigo, missão errada ou etapa incompatível 
 | identify ou assess | confirmar seleção não vazia | Grava uma resposta; próxima etapa, rascunho vazio. |
 | decide | confirmar seleção única | Grava decisão; understand com feedback das três dimensões. |
 | pergunta | confirmar sem seleção | Permanece na etapa, orientação acessível; nenhuma resposta gravada. |
-| understand, missão 1–3 | continuar | Marca missão concluída; próxima missão / identify. |
-| understand, missão 4 | ver resultado | Marca missão concluída; result, exatamente 12 respostas. |
+| understand, missão 1–6 | continuar | Marca missão concluída; próxima missão / identify. |
+| understand, missão 7 | ver resultado | Marca missão concluída; result, exatamente 21 respostas. |
 | mission ou result | pedir reinício | Abre confirmação; invalida tokens anteriores; preserva tentativa. |
 | confirmação | cancelar | Fecha confirmação; preserva tentativa; gera novos tokens. |
 | confirmação | confirmar reinício | Limpa tentativa e interface; nova geração; mission-1 / identify. |
@@ -144,13 +142,7 @@ Os limites do ciclo de vida e da hospedagem estão em research.md.
 ## Validação prevista
 
 - Catálogo: IDs, contagem, ordem, referências, alternativas, explicações e mídia local.
-- Conteúdo: presença das pistas, resposta esperada e feedback nos quatro roteiros.
+- Conteúdo: presença das pistas, resposta esperada e feedback nos sete roteiros.
 - Domínio: conjuntos exatos, respostas parciais, IDs inválidos, ordenação e duplicações.
-- Estado: 12 confirmações, 4 conclusões, token obsoleto, reinício e restauração.
+- Estado: 21 confirmações, 7 conclusões, token obsoleto, reinício e restauração.
 - Privacidade: nenhuma gravação ou envio do estado; fixtures contêm somente dados fictícios.
-
-## Complementos V2
-
-Mission adiciona focus (identify/assess/decide/integrate), sourceMissionNumbers (proveniência V1), shortFeedback com um texto curto por dimensão; Option.feedbackLabel resume a opção no feedback. A missão 4 referencia as missões atuais 1–3.
-
-XpSummary é derivado e não persistido: +50 identify adequado, +50 assess adequado, +100 decide adequado, +25 por missão concluída, deduplicando missão/dimensão e conclusão. Só revelar respostas de missões concluídas ou da missão atual em understand; máximo 900. Novos estados não possuem contador acumulador de XP. AudioController mantém enabled e AudioContext em memória; não integra AnswerRecord.

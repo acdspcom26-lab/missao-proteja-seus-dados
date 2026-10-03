@@ -1,5 +1,3 @@
-> Revisão vigente de 2026-10-03: quatro missões e 12 respostas; a primeira versão com sete missões está preservada em `history/v1/`. Decisão e impactos: [revision-v2.md](revision-v2.md).
-
 # Quickstart: validação da implementação
 
 **Estado atual**: aplicação e comandos implementados. Consulte [validation.md](validation.md)
@@ -53,21 +51,21 @@ Não há comando de build obrigatório: docs/ já contém os arquivos publicáve
 
 ## Validação automatizada
 
-1. **Catálogo**: quatro IDs/ordens, perguntas e referências válidas, explicação por opção,
+1. **Catálogo**: sete IDs/ordens, perguntas e referências válidas, explicação por opção,
    síntese completa, pistas equivalentes em texto, todos os recursos locais.
 2. **Domínio**: igualdade de conjuntos sem depender da ordem; seleção parcial/extra
    inadequada; seleção vazia não produz registro; decisão única.
-3. **Transições**: gravar exatamente 12 respostas, concluir 4 missões; rejeitar token
+3. **Transições**: gravar exatamente 21 respostas, concluir 7 missões; rejeitar token
    obsoleto, ID inválido e confirmação repetida; nenhum erro bloqueia avanço.
-4. **Percursos E2E**: todas adequadas → 4/4 nas três dimensões; todas inadequadas → 0/4;
-   mistura controlada → identificação 1/4, avaliação 2/4 e decisão 3/4.
+4. **Percursos E2E**: todas adequadas → 7/7 nas três dimensões; todas inadequadas → 0/7;
+   mistura controlada → identificação 3/7, avaliação 4/7 e decisão 5/7.
    Fixtures esperadas devem ser revisadas independentemente do avaliador testado.
-5. **Feedback**: para cada uma das quatro missões, confirmar que a resposta esperada
+5. **Feedback**: para cada uma das sete missões, confirmar que a resposta esperada
    e ao menos um caso parcial/indevido levam a explicações coerentes, sem só “certo/errado”.
    Testes de catálogo conferem cobertura de todas as alternativas.
 6. **Reinício**: cancelar preserva etapa, rascunho e respostas; confirmar limpa
    tudo e abre a Missão 1; repetir reinício não reintroduz callbacks antigos.
-4. **Recarga e navegação**: recarregar na Missão 4 volta à abertura sem respostas;
+7. **Recarga e navegação**: recarregar na Missão 4 volta à abertura sem respostas;
    sair e voltar também. Testar BFCache real manualmente conforme seção seguinte;
    evento sintético em teste unitário não prova restauração real.
 8. **Rede/privacidade**: perfil limpo, somente recursos locais estáticos; nenhuma chamada
@@ -102,10 +100,10 @@ duplicação de resposta ou acesso antecipado ao resultado.
   Se BFCache não ocorrer, registrar a limitação e repetir em ambiente que o permita.
 - Alternar abas durante uma missão: progresso deve permanecer.
 - Repetir cliques/toques e Enter nas confirmações: só uma transição é aceita por origem.
-- Revisão pedagógica das quatro missões: conferir objetivo EF08CO08, progressão,
+- Revisão pedagógica das sete missões: conferir objetivo EF08CO08, progressão,
   realidade dos contextos, ausência de dados reais e explicações de todos os distratores.
-  Na Missão 4, conferir integração de dados explícitos, pistas indiretas e combinações.
-- Confirmar orientação final nos casos 0, intermediário e 4 em cada dimensão.
+  Na Missão 7, conferir integração de dados explícitos, pistas indiretas e combinações.
+- Confirmar orientação final nos casos 0, intermediário e 7 em cada dimensão.
   Não aceitar linguagem de reprovação ou promessa de risco zero.
 
 Registrar cenário, navegador/dispositivo, resultado observado e pendências, usando apenas
@@ -120,12 +118,3 @@ Confirmar que index.html e .nojekyll estão na pasta publicada. Não incluir seg
 No endereço público fornecido pelo GitHub, repetir abertura, uma missão, recarga e
 percurso completo; verificar recursos sob o prefixo real do repositório, ausência de
 404, responsividade e não envio de respostas. Não há implantação executada neste plano.
-
-## Revalidação V2
-
-A revisão visual vigente está descrita em `revision-scenarios.md`. Use
-`npx playwright test --project=chromium --workers=1` para medir as transições sem
-concorrência de outros testes. Conferir também lobby, comentários, curtida simulada,
-perfil do remetente e a ordem cenário/desafio em celular; essas ações não mudam XP.
-
-Testar quatro missões, 12 respostas, resultados 4/4, 0/4 e mistura 1/4–2/4–3/4; XP 900, 100 e 550 respectivamente. Confirmar XP oculto até APRENDER, bônus único de conclusão e reset. Testar som desligado por padrão, toggle com teclado, seis sinais locais, falha de AudioContext, prefers-reduced-motion e cenas sociais/jogo. Evidências atuais em validation.md; números anteriores são histórico V1.
